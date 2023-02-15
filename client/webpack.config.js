@@ -17,10 +17,17 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      // plugins for html
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'JATE'
       }),
+      // plugins for workbox to generate service worker
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'service-worker.js',
+      }),
+      // plugins for PWA manifest to generate manifest file
     ],
     
     module: {
