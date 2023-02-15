@@ -17,17 +17,35 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      // plugins for html
+      // plugin for html
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'JATE'
       }),
-      // plugins for workbox to generate service worker
+      // plugin for workbox to generate service worker
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
-      // plugins for PWA manifest to generate manifest file
+      // plugins for Webpack-PWA-manifest to generate manifest.jon file
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: 'Just Another Text Editor',
+        short_name: 'JATE',
+        description: 'PWA text editor run in browser!',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
     ],
     
     module: {
