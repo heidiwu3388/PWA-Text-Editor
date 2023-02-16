@@ -23,15 +23,15 @@ module.exports = () => {
       // plugin for workbox to generate service worker
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swDest: './src-sw.js',
       }),
       // plugins for Webpack-PWA-manifest to generate manifest.jon file
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
         name: 'Just Another Text Editor',
-        short_name: 'JATE',
-        description: 'PWA text editor run in browser!',
+        short_name: 'J.A.T.E',
+        description: 'Takes notes with JavaScript syntax highlighting!',
         background_color: '#225ca3',
         theme_color: '#225ca3',
         start_url: './',
