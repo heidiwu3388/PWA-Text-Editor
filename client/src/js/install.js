@@ -9,6 +9,7 @@ butInstall.addEventListener("click", async () => {
   const promptEvent = window.deferredPrompt;
 
   if (!promptEvent) {
+    alert("J.A.T.E has been installed already! It cannot be installed again!");
     return;
   }
 
